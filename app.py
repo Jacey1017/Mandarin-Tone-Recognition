@@ -73,5 +73,8 @@ def finish():
     )
 
 # 本地测试入口
+import os
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # 默认为5000，Render部署时会自动提供PORT
+    app.run(host='0.0.0.0', port=port)
