@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Stimuli Test&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center; font-family: Arial; flex-direction: column; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.option-group { margin: 20px 0; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.option-group label { margin: 10px 0; display: block; font-size: 18px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;audio autoplay&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;source src="{{ url_for('static', filename='stimuli/' + filename) }}" type="audio/wav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/audio&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;form method="post"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="option-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{% for option in ['Tone 1', 'Tone 2', 'Tone 3', 'Tone 4'] %}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;&lt;input type="radio" name="answer" value="{{ loop.index }}" required&gt; {{ option }}&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{% endfor %}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="submit"&gt;Next&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/form&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
