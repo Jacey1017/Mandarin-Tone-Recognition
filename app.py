@@ -6,12 +6,10 @@ import io
 from datetime import datetime
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # 用于会话加密
+app.secret_key = 'your_secret_key'
 
-# 定义基础路径
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# 音频刺激路径
 stimuli_path = os.path.join(BASE_DIR, 'static', 'Noise Vocoded Stimuli')
 test_audio_path = os.path.join(BASE_DIR, 'static', 'Recording_test_vocoded_nB4.wav')
 
@@ -57,7 +55,6 @@ def next_trial():
 
 @app.route('/finish')
 def finish():
-    # 导出 CSV
     output = io.StringIO()
     writer = csv.DictWriter(output, fieldnames=['stimulus', 'response', 'timestamp'])
     writer.writeheader()
@@ -72,9 +69,8 @@ def finish():
         download_name='responses.csv'
     )
 
-# 本地测试入口
 import os
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # 默认为5000，Render部署时会自动提供PORT
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
